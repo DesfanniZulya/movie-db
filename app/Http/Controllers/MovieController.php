@@ -7,10 +7,25 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-  public function index(){
-    // $movies = Movie::latest() memanggil semua
-     $movies = Movie::latest()->paginate(6); // Ambil 6 film terbaru
-    return view('homepage', compact('movies'));
-   // return view('homepage, ['movie'-> $movies]);
-  }
+    public function index()
+    {
+        $movies = Movie::latest()->paginate(6);
+        return view('homepage', compact('movies'));
+    }
+
+    public function detail_movie($id, $slug)
+    {
+        $movie = Movie::find($id);
+        return view('movie_detail', compact('movie'));
+    }
+
+    public function create()
+    {
+      
+      return view('movie_form');
+    }
+    public function store()
+    {
+      //
+    }
 }
