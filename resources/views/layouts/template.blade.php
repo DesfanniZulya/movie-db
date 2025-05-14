@@ -3,11 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <title>Daftar Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <div class="container py-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach ($movies as $movie)
+          <div class="col">
+            <div class="card h-100">
+              <img src="{{ $movie->cover_image }}" class="card-img-top" alt="{{ $movie->title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ $movie->title }}</h5>
+                <p class="card-text">{{ Str::limit($movie->synopsis, 100) }}</p>
+                <p class="text-muted"><strong>Tahun:</strong> {{ $movie->year }}</p>
+                <p class="text-muted"><strong>Pemeran:</strong> {{ $movie->actors }}</p>
+                <a href="#" class="btn btn-primary">Detail</a>
+              </div>
+            </div>
+          </div>
+        @endforeach
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
