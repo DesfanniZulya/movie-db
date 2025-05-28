@@ -44,5 +44,18 @@ class MovieController extends Controller
 
     return redirect('/')->with('success', 'Movie berhasil ditambahkan!');
 }
+    public function datamovie()
+{
+    $movies = Movie::with('category')->latest()->get(); // Ambil semua data movie dengan relasi category
+    return view('admin.datamovie', compact('movies'));
+}
+
+      public function edit($id)
+{
+    $movie = Movie::findOrFail($id);
+    $categories = Category::all();
+    return view('admin.formeditmovie', compact('movie', 'categories'));
+}
+
 
 }
