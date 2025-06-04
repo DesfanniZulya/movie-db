@@ -3,7 +3,7 @@
 
 <style>
     body {
-        background: linear-gradient(to bottom, #a8e6a3, #e8f5e9); /* gradasi hijau daun ke hijau muda */
+        background: linear-gradient(to bottom, #bbdefb, #e3f2fd); /* gradasi biru muda ke biru pastel */
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
@@ -13,32 +13,32 @@
         padding: 30px;
         border-radius: 15px;
         background-color: #ffffff;
-        box-shadow: 0 10px 25px rgba(34, 139, 34, 0.2);
-        border: 1px solid #c8e6c9;
+        box-shadow: 0 10px 25px rgba(30, 136, 229, 0.2); /* bayangan biru */
+        border: 1px solid #bbdefb;
     }
 
     .form-label {
         font-weight: 600;
-        color: #2e7d32; /* hijau daun tua */
+        color: #1565c0; /* biru tua */
     }
 
     .form-control {
-        border: 2px solid #c5e1a5;
+        border: 2px solid #90caf9;
         transition: 0.3s;
     }
 
     .form-control:focus {
-        border-color: #66bb6a;
-        box-shadow: 0 0 0 0.2rem rgba(102, 187, 106, 0.25);
+        border-color: #42a5f5;
+        box-shadow: 0 0 0 0.2rem rgba(66, 165, 245, 0.25);
     }
 
     .btn-primary {
-        background-color: #388e3c; /* hijau utama */
+        background-color: #1e88e5; /* biru utama */
         border: none;
     }
 
     .btn-primary:hover {
-        background-color: #2e7d32;
+        background-color: #1565c0;
     }
 
     .text-danger {
@@ -46,12 +46,12 @@
     }
 
     .form-text {
-        color: #6c757d;
+        color: #607d8b;
     }
 </style>
 
 <div class="card-form">
-    <h3 class="text-center mb-4" style="color: #2e7d32;">Login ke Akunmu</h3>
+    <h3 class="text-center mb-4" style="color: #1565c0;">Login ke Akunmu</h3>
     <form action="/login" method="post">
         @csrf
 
@@ -62,7 +62,7 @@
                    id="email"
                    class="form-control @error('email') is-invalid @enderror"
                    aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Email kamu aman bersama kami 🍃</div>
+            <div id="emailHelp" class="form-text">Email kamu aman bersama kami 🔒</div>
             @error('email')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -80,7 +80,7 @@
             <input type="checkbox"
                    class="form-check-input"
                    id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">check me out 🌿</label>
+            <label class="form-check-label" for="exampleCheck1">Ingat saya 💙</label>
         </div>
 
         <button type="submit" class="btn btn-primary w-100">Masuk</button>
