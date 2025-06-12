@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MovieController::class,'index']);
+
 Route::get('/movie/{id}/edit', [MovieController::class, 'edit'])->name('movie.edit')->middleware('auth', RoleAdmin::class);
 
 Route::delete('/movie/{id}', [MovieController::class, 'destroy'])->name('movie.destroy')->middleware('auth');
